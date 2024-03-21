@@ -21,8 +21,8 @@ app.post(URI, async (req, res) => {
 
     console.log(req.body)
 
-    const chatId = req.body.update_type === 'callback_query' ? req.body.callbackQuery.message.chat.id : req.body.message.chat.id;
-    const text = req.body.message.text
+    // const chatId = req.body.update_type === 'callback_query' ? req.body.callbackQuery.message.chat.id : req.body.message.chat.id;
+    // const text = req.body.message.text
 
     const keyboard = [
         [{ text: 'testing', callback_data: '/testing' }],
@@ -30,8 +30,7 @@ app.post(URI, async (req, res) => {
       ]
 
     await axios.post(`${TELEGRAM_API}/sendMessage`, {
-        chat_id: chatId,
-        text: command(text),
+        // text: command(text),
         reply_markup: { inline_keyboard: keyboard }
     })
     return res.send()
