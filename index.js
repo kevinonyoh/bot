@@ -19,10 +19,9 @@ const init = async () => {
 
 app.post(URI, async (req, res) => {
 
-    console.log(req.body)
+    console.log(req.body.callback_query)
 
-    const chatId = req.body.update_type === 'callback_query' ? req.body.callbackQuery.message.chat.id : req.body.message.chat.id;
-    const text = req.body.message.text
+
 
     const keyboard = [
         [{ text: 'testing', callback_data: '/testing' }],
