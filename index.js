@@ -16,12 +16,6 @@ const init = async () => {
     console.log(res.data)
 }
 
-const keyboard = {
-  inline_keyboard: [
-    [{ text: 'Click me to execute command', callback_data: '/command' }]
-  ]
-};
-
 app.post(URI, async (req, res) => {
     console.log(req.body)
 
@@ -30,8 +24,7 @@ app.post(URI, async (req, res) => {
 
     await axios.post(`${TELEGRAM_API}/sendMessage`, {
         chat_id: chatId,
-        text: text,
-        reply_markup: JSON.stringify(keyboard)
+        text: text
     })
     return res.send()
 })
