@@ -31,7 +31,7 @@ app.post(URI, async (req, res) => {
       ]
 
     await axios.post(`${TELEGRAM_API}/sendMessage`, {
-        chat_id: 1,
+        chat_id: chatId,
         text: command(text),
         reply_markup: { inline_keyboard: keyboard }
     })
