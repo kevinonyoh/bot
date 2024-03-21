@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const axios = require('axios')
 const bodyParser = require('body-parser')
+const command = require("./command");
 
 const { TOKEN, SERVER_URL } = process.env
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`
@@ -17,7 +18,7 @@ const init = async () => {
 }
 
 app.post(URI, async (req, res) => {
-  
+
     console.log(req.body)
 
     const chatId = req.body.message.chat.id
@@ -25,7 +26,7 @@ app.post(URI, async (req, res) => {
 
     await axios.post(`${TELEGRAM_API}/sendMessage`, {
         chat_id: chatId,
-        text: text
+        text: command(text)
     })
     return res.send()
 })
