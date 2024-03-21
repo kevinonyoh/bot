@@ -22,20 +22,20 @@ app.post(URI, async (req, res) => {
     console.log(req.body);
 
    
-    // const chatId = req.body.update_type === 'callback_query' ? req.body.callbackQuery.message.chat.id : req.body.message.chat.id;
-    // const text = req.body.message.text
+    const chatId = req.body.message.chat.id;
+    const text = req.body.message.text
 
-    // const keyboard = [
-    //     [{ text: 'testing', callback_data: '/testing' }],
-    //     [{ text: 'start', callback_data: '/start' }]
-    //   ]
+    const keyboard = [
+        [{ text: 'testing', callback_data: '/testing' }],
+        [{ text: 'start', callback_data: '/start' }]
+      ]
 
-    // await axios.post(`${TELEGRAM_API}/sendMessage`, {
-    //     chat_id: 1,
-    //     text: command(text),
-    //     reply_markup: { inline_keyboard: keyboard }
-    // })
-    // return res.send()
+    await axios.post(`${TELEGRAM_API}/sendMessage`, {
+        chat_id: 1,
+        text: command(text),
+        reply_markup: { inline_keyboard: keyboard }
+    })
+    return res.send()
 })
 
 app.listen(process.env.PORT || 5000, async () => {
