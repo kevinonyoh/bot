@@ -1,26 +1,35 @@
+require('dotenv').config()
+const express = require('express')
+const axios = require('axios')
+const bodyParser = require('body-parser')
 
-const TelegramBot = require('node-telegram-bot-api');
+const { TOKEN, SERVER_URL } = process.env
+const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`
+const URI = `/webhook/${TOKEN}`
+const WEBHOOK_URL = SERVER_URL + URI
 
-const token = '6780554052:AAFPLRUH6UHn6y8Yd2eIMs4Mh9adVlJU_jE';
+const app = express()
+app.use(bodyParser.json())
 
+const init = async () => {
+    const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`)
+    console.log(res.data)
+}
 
-const bot = new TelegramBot(token, {polling: true});
+app.post(URI, async (req, res) => {
+    console.log(req.body)
 
-bot.onText(/\/start/, (msg) => {
-    const chatId = msg.chat.id;
-    const keyboard = {
-      inline_keyboard: [
-        [
-          { text: 'Button 1', callback_data: 'button1' },
-          { text: 'Button 2', callback_data: 'button2' }
-        ],
-        [
-          { text: 'Button 3', callback_data: 'button3' }
-        ]
-      ]
-    };
-  
-    bot.sendMessage(chatId, 'Choose a button:', {
-      reply_markup: JSON.stringify(keyboard)
-    });
-  });
+    const chatId = req.body.message.chat.id
+    const text = req.body.message.text
+
+    await axios.post(`${TELEGRAM_API}/sendMessage`, {
+        chat_id: chatId,
+        text: text
+    })
+    return res.send()
+})
+
+app.listen(process.env.PORT || 5000, async () => {
+    console.log('🚀 app running on port', process.env.PORT || 5000)
+    await init()
+})
