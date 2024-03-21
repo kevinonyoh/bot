@@ -19,7 +19,7 @@ const init = async () => {
 
 app.post(URI, async (req, res) => {
 
-    console.log(req.body.message.chat.id);
+    console.log(req.body);
 
     const chatId = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.message.chat.id:  req.body.message.chat.id ;
     const text = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.data :req.body.message.text;
