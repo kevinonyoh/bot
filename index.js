@@ -19,10 +19,9 @@ const init = async () => {
 
 app.post(URI, async (req, res) => {
 
-    console.log(req.body);
+    console.log(req.body)
 
-   
-    const chatId = req.body.message.chat.id;
+    const chatId = req.body.message.chat.id
     const text = req.body.message.text
 
     const keyboard = [
