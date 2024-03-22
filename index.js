@@ -31,12 +31,14 @@ app.post(URI, async (req, res) => {
     //     [{ text: 'start', callback_data: '/start' }]
     //   ]
     //   reply_markup: { inline_keyboard: keyboard }
-    
+
 
      const {urlType, ...rest} = command(chatId, text);
 
-    await axios.post(`${TELEGRAM_API}/${urlType}`, rest);
-    return res.send()
+     console.log(urlType, rest);
+
+    // await axios.post(`${TELEGRAM_API}/${urlType}`, rest);
+    // return res.send()
 })
 
 app.listen(process.env.PORT || 5000, async () => {
