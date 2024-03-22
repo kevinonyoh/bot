@@ -1,24 +1,10 @@
-function command(chatId,data){
-
-    
+function command(data){
   switch (data) {
     case "/start":
-         const localFile = "./download.png";
-
-        return {
-           chat_id: chatId,
-           document: localFile,
-           caption: "Hello, there. Earn 4000 TWT airdrop token",
-           urlType: `sendDocument`  
-        }
-
+        return "Hello kevin. I am your friendly Token bot";
         break;
     case "/testing":
-        return  {
-          chat_id: chatId,
-          text: "Hello checking this out",
-          urlType: `sendMessage`
-      };
+        return "simply testing this out";
         break;
   
     default:
