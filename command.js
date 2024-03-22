@@ -14,6 +14,8 @@ function command(chat,data){
             [{ text: 'Join Group', callback_data: '/JoinGroup' }]
           ]
 
+          const keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
+
          
 
           const caption = "Hello "+`${chat?.first_name}`+", I am your friendly TWT  Airdrop bot\n"+
@@ -33,7 +35,7 @@ function command(chat,data){
           formData.append('chat_id', chat?.id);
           formData.append('photo', fs.createReadStream('./download.png'));
           formData.append('caption', caption);
-          formData.append('reply_markup', { 'inline_keyboard': keyboard });
+          formData.append('reply_markup', keyboardJSON);
 
 
         return {
