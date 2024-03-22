@@ -33,11 +33,14 @@ app.post(URI, async (req, res) => {
     //   reply_markup: { inline_keyboard: keyboard }
 
 
-     const {urlType, ...rest} = command(chatId, text);
+    const { urlType, headers, ...rest } = command(chatId, text);
 
-     console.log(urlType, rest);
+    console.log(urlType, rest);
 
-    await axios.post(`${TELEGRAM_API}/${urlType}`, rest);
+    await axios.post(`${TELEGRAM_API}/${urlType}`, rest, {
+        headers: headers
+      });
+      
     return res.send()
 })
 

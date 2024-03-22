@@ -11,7 +11,10 @@ function command(chatId,data){
            chat_id: chatId,
            document: localFile,
            caption: "Hello, there. Earn 4000 TWT airdrop token",
-           urlType: `sendDocument`  
+           urlType: `sendPhoto`,
+           headers: {
+            'Content-Type': 'multipart/form-data' 
+          }  
         }
 
         break;
@@ -19,8 +22,11 @@ function command(chatId,data){
         return  {
           chat_id: chatId,
           text: "Hello checking this out",
-          urlType: `sendMessage`
-      };
+          urlType: `sendMessage`,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+         }
         break;
   
     default:
