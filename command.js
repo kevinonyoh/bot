@@ -4,15 +4,13 @@ const fs = require('fs');
 
 
 function command(chat,data){
-    const {chatId = id, firstName = first_name} = chat;
-
-   
+    
     
   switch (data) {
     case "/start":
           const formData = new FormData();
 
-          const caption = "Hello,"+` ${firstName}`+", I am your friendly TWT  Airdrop bot\n"+
+          const caption = "Hello,"+` ${chat?.first_name}`+", I am your friendly TWT  Airdrop bot\n"+
           "\n"+
           "🔹 Earn 9,000 TWT (~$ 11,970) For Completing Tasks\n"+
           "🔹 Earn 100 TWT (~$ 133) For Each Refer\n"+
@@ -26,7 +24,7 @@ function command(chat,data){
           "\n"+
           "Click On  '✅ Join Airdrop' For Procced";
             
-          formData.append('chat_id', chatId);
+          formData.append('chat_id', chat?.id);
           formData.append('photo', fs.createReadStream('./download.png'));
           formData.append('caption', caption);
 
@@ -40,7 +38,7 @@ function command(chat,data){
         
     case "/testing":
         return  {
-          chat_id: chatId,
+          chat_id: chat?.id,
           text: "Hello checking this out",
           urlType: `sendMessage`
          }
