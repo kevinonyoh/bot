@@ -26,16 +26,18 @@ app.post(URI, async (req, res) => {
 
    
 
-    const keyboard = [
-        [{ text: 'testing', callback_data: '/testing' }],
-        [{ text: 'start', callback_data: '/start' }]
-      ]
+    // const keyboard = [
+    //     [{ text: 'testing', callback_data: '/testing' }],
+    //     [{ text: 'start', callback_data: '/start' }]
+    //   ]
+    //   reply_markup: { inline_keyboard: keyboard }
 
-    await axios.post(`${TELEGRAM_API}/sendMessage`, {
-        chat_id: chatId,
-        text: command(text),
-        reply_markup: { inline_keyboard: keyboard }
-    })
+
+     const {urlType, ...rest} = command(chatId, text);
+
+     console.log(urlType, rest);
+
+    await axios.post(`${TELEGRAM_API}/${urlType}`, rest);
     return res.send()
 })
 
