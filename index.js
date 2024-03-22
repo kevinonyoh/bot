@@ -33,13 +33,29 @@ app.post(URI, async (req, res) => {
     //   reply_markup: { inline_keyboard: keyboard }
 
 
-    const { urlType, headers, ...rest } = command(chatId, text);
+    const { urlType, ...rest} = command(chatId, text);
+  
+    
 
-    console.log(urlType, rest);
+    try {
+        
+        if(urlType === `sendPhoto`){
+            
+            const {formData} = rest;
+            
+            await axios.post(`${TELEGRAM_API}/sendPhoto`, formData, { headers: formData.getHeaders(), });
 
-    await axios.post(`${TELEGRAM_API}/${urlType}`, rest, {
-        headers: headers
-      });
+        }else if(urlType === `sendMessage`){
+
+            await axios.post(`${TELEGRAM_API}/sendMessage`, rest );
+
+        }
+       
+    } catch (err) {
+        console.error("Error calling Telegram API:", err.message);   
+    }
+
+    
       
     return res.send()
 })
