@@ -26,7 +26,7 @@ function command(chat,data){
           "📢 Airdrop Rules\n"+
           "\n"+
           "✏️ Mandatory Tasks:\n"+
-          "🔹 Join our Telegram Group\n"+
+          "🔹 Join our"+` [Telegram group](https://www.npmjs.com/package/form-data)\n`+
           "🔹 Join our Telegram Channel\n"+
           "🔹 Refer at least 5 Friends\n"+
           "\n"+
