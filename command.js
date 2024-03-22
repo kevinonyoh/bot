@@ -4,7 +4,11 @@ const fs = require('fs');
 
 
 function command(chat,data){
-    const {chatId=chat_id, firstName = first_name} = chat;
+    const {chat_id, first_name} = chat;
+
+    const chatId = chat_id;
+
+    const firstName = first_name;
     
   switch (data) {
     case "/start":
