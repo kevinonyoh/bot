@@ -33,7 +33,7 @@ function command(chat,data){
           formData.append('chat_id', chat?.id);
           formData.append('photo', fs.createReadStream('./download.png'));
           formData.append('caption', caption);
-          formData.append('reply_markup', { inline_keyboard: keyboard });
+          // formData.append('reply_markup', { inline_keyboard: keyboard });
 
 
         return {
