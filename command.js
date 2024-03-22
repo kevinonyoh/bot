@@ -45,7 +45,7 @@ function command(chat,data){
 
         break;
         
-    case "/testing":
+    case "/JoinGroup":
         return  {
           chat_id: chat?.id,
           text: "Hello checking this out",
