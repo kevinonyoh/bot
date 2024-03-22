@@ -3,14 +3,14 @@ const fs = require('fs');
 
 
 
-function command(chatId,data){
-
+function command(chat,data){
+    const {chatId=chat_id, firstName = first_name} = chat;
     
   switch (data) {
     case "/start":
           const formData = new FormData();
 
-          const caption = "Hello, Hsaka_trade 👋 , I am your friendly TWT  Airdrop bot\n"+
+          const caption = "Hello,"+` ${firstName}`+", I am your friendly TWT  Airdrop bot\n"+
           "\n"+
           "🔹 Earn 9,000 TWT (~$ 11,970) For Completing Tasks\n"+
           "🔹 Earn 100 TWT (~$ 133) For Each Refer\n"+
@@ -57,3 +57,8 @@ module.exports = command;
 
 
 
+// const keyboard = [
+//         [{ text: 'testing', callback_data: '/testing' }]
+//       ]
+
+//       reply_markup: { inline_keyboard: keyboard }

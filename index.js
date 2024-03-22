@@ -19,21 +19,17 @@ const init = async () => {
 
 app.post(URI, async (req, res) => {
 
-    console.log(req.body);
+    // console.log(req.body);
 
-    const chatId = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.message.chat.id:  req.body.message.chat.id ;
+    const chat = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.message.chat:  req.body.message.chat ;
     const text = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.data :req.body.message.text;
 
    
 
-    // const keyboard = [
-    //     [{ text: 'testing', callback_data: '/testing' }],
-    //     [{ text: 'start', callback_data: '/start' }]
-    //   ]
-    //   reply_markup: { inline_keyboard: keyboard }
+    
 
 
-    const { urlType, ...rest} = command(chatId, text);
+    const { urlType, ...rest} = command(chat, text);
   
     
 
