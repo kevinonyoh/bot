@@ -10,6 +10,12 @@ function command(chat,data){
     case "/start":
           const formData = new FormData();
 
+         const keyboard = [
+            [{ text: 'Join Group', callback_data: '/JoinGroup' }]
+          ]
+
+         
+
           const caption = "Hello "+`${chat?.first_name}`+", I am your friendly TWT  Airdrop bot\n"+
           "\n"+
           "🔹 Earn 9,000 TWT (~$ 11,970) For Completing Tasks\n"+
@@ -27,6 +33,7 @@ function command(chat,data){
           formData.append('chat_id', chat?.id);
           formData.append('photo', fs.createReadStream('./download.png'));
           formData.append('caption', caption);
+          formData.append('reply_markup', { inline_keyboard: keyboard });
 
 
         return {
@@ -57,8 +64,3 @@ module.exports = command;
 
 
 
-// const keyboard = [
-//         [{ text: 'testing', callback_data: '/testing' }]
-//       ]
-
-//       reply_markup: { inline_keyboard: keyboard }
