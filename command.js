@@ -76,7 +76,7 @@ function command(chat,data){
     caption = "⬇️ Now Please Submit Your TWT ERC20 Wallet Address\n"+ 
               "Search 'TWT' in Trust wallet or Safepal , Copy receive address and paste it Here\n";
     formData.append('chat_id', chat?.id);
-    formData.append('photo', fs.createReadStream('./image3.jpeg'));
+    formData.append('photo', fs.createReadStream('./image3.jpg'));
     formData.append('caption', caption);
   
       return  {
