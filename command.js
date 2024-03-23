@@ -28,10 +28,11 @@ function command(chat,data){
           "\n"+
           "📢 Airdrop Rules\n"+
           "\n"+
-          "✏️ Mandatory Tasks:\n"+
-          "🔹 Join our"+` [Telegram group](https://www.npmjs.com/package/form-data)\n`+
-          "🔹 Join our Telegram Channel\n"+
-          "🔹 Refer at least 5 Friends\n"+
+          "🔸 follow Our Twitter handle\n"+
+          "🔹 follow Our Instagram handle\n"+
+          "🔸 Join Our Telegram Group\n"+
+          "🔹 Join Our Telegram Channel\n";
+          "🔸 Refer at least 5 Friends\n"+
           "\n"+
           "Click On  '✅ Join Airdrop' For Procced";
             
@@ -55,7 +56,7 @@ function command(chat,data){
                      "🔸 Join Our Telegram Group\n"+
                      "🔹 Join Our Telegram Channel\n";
       keyboard = [
-      [{ text: 'check', callback_data: '/submit' }]
+      [{ text: 'check ✅', callback_data: '/submit' }]
     ]
 
       keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
