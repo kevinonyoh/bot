@@ -4,21 +4,24 @@ const fs = require('fs');
 
 
 function command(chat,data){
-    
+  let caption;
+  let keyboard;
+  let keyboardJSON;
+  const formData = new FormData();
+
     
   switch (data) {
     case "/start":
-          const formData = new FormData();
-
-         const keyboard = [
+          
+          keyboard = [
             [{ text: 'Join Group', callback_data: '/JoinGroup' }]
           ]
 
-          const keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
+           keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
 
          
 
-          const caption = "Hello "+`${chat?.first_name}`+", I am your friendly TWT  Airdrop bot\n"+
+          caption = "Hello "+`${chat?.first_name}`+", I am your friendly TWT  Airdrop bot\n"+
           "\n"+
           "🔹 Earn 9,000 TWT (~$ 11,970) For Completing Tasks\n"+
           "🔹 Earn 100 TWT (~$ 133) For Each Refer\n"+
@@ -46,13 +49,37 @@ function command(chat,data){
         break;
         
     case "/JoinGroup":
-        return  {
-          chat_id: chat?.id,
-          text: "Hello checking this out",
-          urlType: `sendMessage`
-         }
+        caption =     "Let's proceed:\n"+
+                     "🔸 follow Our Twitter handle\n"+
+                     "🔹 follow Our Instagram handle\n"+
+                     "🔸 Join Our Telegram Group\n"+
+                     "🔹 Join Our Telegram Channel\n";
+      keyboard = [
+      [{ text: 'check', callback_data: '/submit' }]
+    ]
+
+      keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
+
+        formData.append('chat_id', chat?.id);
+        formData.append('photo', fs.createReadStream('./image2.jpeg'));
+        formData.append('caption', caption);
+        formData.append('reply_markup', keyboardJSON);
+
+        return {
+          formData,
+          urlType: `sendPhoto`
+        }
         break;
-  
+    
+    case "/submit":
+      return  {
+        chat_id: chat?.id,
+        text: "Hello checking this out",
+        urlType: `sendMessage`
+        }
+
+      break;
+
     default:
         return "no command input"
         break;
@@ -60,6 +87,9 @@ function command(chat,data){
 }
 
 module.exports = command;
+
+
+
 
 
 
