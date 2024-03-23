@@ -21,6 +21,12 @@ app.post(URI, async (req, res) => {
 
      console.log(req.body);
 
+     if (req.body.hasOwnProperty("my_chat_member")) {
+        console.log("Ignoring my_chat_member update (bot was kicked)");
+        return;  
+      }
+      
+
     const chat = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.message.chat:  req.body.message.chat ;
     const text = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.data :req.body.message.text;
 
