@@ -14,7 +14,7 @@ function command(chat,data){
     case "/start":
           
           keyboard = [
-            [{ text: 'Join Group', callback_data: '/JoinGroup' }]
+            [{ text: 'Join Airdrop', callback_data: '/JoinGroup' }]
           ]
 
            keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
@@ -73,10 +73,15 @@ function command(chat,data){
         break;
     
     case "/submit":
+    caption = "⬇️ Now Please Submit Your TWT ERC20 Wallet Address\n"+ 
+              "Search 'TWT' in Trust wallet or Safepal , Copy receive address and paste it Here\n";
+    formData.append('chat_id', chat?.id);
+    formData.append('photo', fs.createReadStream('./image3.jpeg'));
+    formData.append('caption', caption);
+  
       return  {
-        chat_id: chat?.id,
-        text: "Hello checking this out",
-        urlType: `sendMessage`
+        formData,
+          urlType: `sendPhoto`
         }
 
       break;
