@@ -19,7 +19,7 @@ const init = async () => {
 
 app.post(URI, async (req, res) => {
 
-    // console.log(req.body);
+     console.log(req.body);
 
     const chat = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.message.chat:  req.body.message.chat ;
     const text = req.body.hasOwnProperty("callback_query") ? req.body.callback_query.data :req.body.message.text;
