@@ -19,7 +19,7 @@ const init = async () => {
 
 app.post(URI, async (req, res) => {
 
-     console.log(req.body);
+    //  console.log(req.body);
 
      if (req.body.hasOwnProperty("my_chat_member")) {
         console.log("Ignoring my_chat_member update (bot was kicked)");
