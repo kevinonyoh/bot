@@ -35,7 +35,7 @@ app.post(URI, async (req, res) => {
     
 
 
-    const { urlType, ...rest} = command(chat, text);
+    const { urlType, ...rest} = await command(chat, text);
   
     
 
