@@ -35,7 +35,7 @@ app.post(URI, async (req, res) => {
     
 
 
-    const { urlType, ...rest} = await command(chat, text);
+    const { urlType, ...rest} =  command(chat, text);
   
     
 
@@ -45,7 +45,7 @@ app.post(URI, async (req, res) => {
             
             const {formData} = rest;
             
-            await axios.post(`${TELEGRAM_API}/sendPhoto`, formData);
+            await axios.post(`${TELEGRAM_API}/sendPhoto`, formData, { headers: formData.getHeaders(), });
 
         }else if(urlType === `sendMessage`){
 

@@ -1,4 +1,3 @@
-const FormData = require('form-data');
 const fs = require('fs');
 const client = require("./redisConfig");
 const commandFuntions = require("./functions");
@@ -58,7 +57,6 @@ async function command(chat,data){
             text: val
            }
          }
-        return "no command input"
         break;
   }
 }

