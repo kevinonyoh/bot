@@ -145,7 +145,7 @@ async function submitWalletComplete(chat){
                     chat_id: chat?.id,
                     text,
                     reply_markup: keyboardJSON,
-                    urlType: `sendPhoto`
+                    urlType: `sendMessage`
                 }
 
 }
