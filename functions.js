@@ -97,23 +97,15 @@ async function submitWallet(chat){
         const formData = new FormData();
 
     
-        const message = [
-            [{ text: 'Enter TWT Wallet Address', 
-            input_message_content: {
-                message_text: 'Enter your TWT ERC20 Wallet Address here...', // Pre-filled text
-            }
-        }]
-          ]
-      
-            messageJSON = JSON.stringify({ 'inline_keyboard': message });
-      
-
             caption = "⬇️ Now Please Submit Your TWT ERC20 Wallet Address\n"+ 
-            "Search 'TWT' in Trust wallet or Safepal , Copy receive address and paste it Here\n";
+            "Search 'TWT' in Trust wallet or Safepal , Copy receive address and paste it Here\n\n"+
+            "Ensure to put address using format ⬇️\n"+
+            "wallet :- fhejheiuriru2o824230weuwieu87 \n"+
+            "Add the text 'wallet' in other for our server to read your address";
+
             formData.append('chat_id', chat?.id);
             formData.append('photo', fs.createReadStream('./image3.jpg'));
             formData.append('caption', caption);
-            formData.append('reply_markup', messageJSON);
             
                      
             return  {
@@ -284,3 +276,6 @@ async function bnbGasFee(chat){
 
 
 module.exports = {startFuntion, JoinGroupFunction, submitWallet, submitWalletComplete, withdrawFunction, ethGasFee, trxGasFee, bnbGasFee};
+
+
+

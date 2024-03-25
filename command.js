@@ -40,11 +40,13 @@ async function command(chat,data){
     
 
     default:
-         const value = await client.get(chat?.first_name);
+         
+        const walletAddress = data.toLowerCase();
 
-         if(!!value){
-          await client.del(chat?.first_name);
+         if(walletAddress.includes("wallet")){
+         
           return await commandFuntions.submitWalletComplete(chat);
+          
          } else {
           let val = "❌ Unknown Command! \n\n"+
                     "You have send a Message directly into the Bot's chat or \n"+
