@@ -93,17 +93,20 @@ async function submitWallet(chat){
     try {
 
         let caption;
-       
+        let messageJSON;
         const formData = new FormData();
+
+        messageJSON = JSON.stringify({ message_text: 'Enter your Wallet here...' });
+
 
             caption = "⬇️ Now Please Submit Your TWT ERC20 Wallet Address\n"+ 
             "Search 'TWT' in Trust wallet or Safepal , Copy receive address and paste it Here\n";
             formData.append('chat_id', chat?.id);
             formData.append('photo', fs.createReadStream('./image3.jpg'));
             formData.append('caption', caption);
-
-           await client.set(`${chat?.first_name}`, "/walletSubmit"); 
-
+            formData.append('input_message_content', messageJSON);
+            
+                     
             return  {
             formData,
             urlType: `sendPhoto`
