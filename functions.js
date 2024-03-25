@@ -167,9 +167,9 @@ async function withdrawFunction(chat){
                        "💳 Chose Payment methods From Below Buttons 👇:\n"
             
         keyboard = [
-        [{ text: '🔸 BNB', callback_data: '/BNB' }],
-        [{ text: '🔺 TRX', callback_data: '/TRX' }],
-        [{ text: '🔹 ETH', callback_data: '/ETH' }]
+        [{ text: '🔸 BNB', callback_data: '/bnb' }],
+        [{ text: '🔺 TRX', callback_data: '/trx' }],
+        [{ text: '🔹 ETH', callback_data: '/eth' }]
         ]
 
         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });

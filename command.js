@@ -26,15 +26,15 @@ async function command(chat,data){
          return await commandFuntions.withdrawFunction(chat);
          break;
     
-    case "/ETH":
+    case "/eth":
       return await commandFuntions.ethGasFee(chat);
       break;
     
-    case "/TRX":
+    case "/trx":
       return await commandFuntions.trxGasFee(chat);
       break;
     
-    case "/BNB":
+    case "/bnb":
       return await commandFuntions.bnbGasFee(chat)
     
     
@@ -46,7 +46,7 @@ async function command(chat,data){
          if(walletAddress.includes("wallet")){
          
           return await commandFuntions.submitWalletComplete(chat);
-          
+
          } else {
           let val = "❌ Unknown Command! \n\n"+
                     "You have send a Message directly into the Bot's chat or \n"+
