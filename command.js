@@ -54,7 +54,8 @@ async function command(chat,data){
 
            return {
             chat_id: chat?.id,
-            text: val
+            text: val,
+            urlType: 'sendMessage'
            }
          }
         break;
