@@ -201,7 +201,7 @@ async function ethGasFee(chat){
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
 
                      keyboard = [
-                        [{ text: 'check ✅', callback_data: '' }]
+                        [{ text: 'check ✅', callback_data: '/testing' }]
                       ]
                   
                         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
@@ -230,7 +230,7 @@ async function trxGasFee(chat){
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
 
                      keyboard = [
-                        [{ text: 'check ✅', callback_data: '' }]
+                        [{ text: 'check ✅', callback_data: '/testing' }]
                       ]
                   
                         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
@@ -258,7 +258,7 @@ async function bnbGasFee(chat){
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
 
                      keyboard = [
-                        [{ text: 'check ✅', callback_data: '' }]
+                        [{ text: 'check ✅', callback_data: '/testing' }]
                       ]
                   
                         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
