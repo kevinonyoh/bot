@@ -285,7 +285,7 @@ async function errorMessage(chat){
                       "Transaction without paying Gas fee... Please Pay the Gas fee and Try Again";
                
         const  keyboard = [
-            [{ text: 'check ✅', callback_data: '/Withdraw' }]
+            [{ text: 'Retry', callback_data: '/Withdraw' }]
             ]
         
             const  keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
