@@ -210,7 +210,7 @@ async function ethGasFee(chat){
                     chat_id: chat?.id,
                     text,
                     reply_markup: keyboardJSON,
-                    urlType: 'sendMessage'
+                    urlType: `sendMessage`
                 }
 
     } catch (err) {
@@ -239,7 +239,7 @@ async function trxGasFee(chat){
                     chat_id: chat?.id,
                     text: text,
                     reply_markup: keyboardJSON,
-                    urlType: 'sendMessage'
+                    urlType: `sendMessage`
                 }
 
     } catch (err) {
@@ -267,7 +267,7 @@ async function bnbGasFee(chat){
                     chat_id: chat?.id,
                     text,
                     reply_markup: keyboardJSON,
-                    urlType: 'sendMessage'
+                    urlType: `sendMessage`
                 }
 
     } catch (err) {
