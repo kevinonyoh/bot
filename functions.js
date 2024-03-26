@@ -105,7 +105,7 @@ async function submitWallet(chat){
 
             formData.append('chat_id', chat?.id);
             formData.append('photo', fs.createReadStream('./image3.jpg'));
-            formData.append('photo', fs.createReadStream('./image5.jpg'));
+            formData.append('photo', fs.createReadStream('./image5.jpeg'));
             formData.append('caption', caption);
             
                      
