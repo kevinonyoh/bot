@@ -99,12 +99,13 @@ async function submitWallet(chat){
     
             caption = "⬇️ Now Please Submit Your TWT ERC20 Wallet Address\n"+ 
             "Search 'TWT' in Trust wallet or Safepal , Copy receive address and paste it Here\n\n"+
-            "Ensure to put address using format ⬇️\n"+
-            "wallet :- fhejheiuriru2o824230weuwieu87 \n"+
+            "Ensure to put address using format ⬇️\n\n"+
+            "wallet :- fhejheiuriru2o824230weuwieu87 \n\n"+
             "Add the text 'wallet' in other for our server to read your address";
 
             formData.append('chat_id', chat?.id);
             formData.append('photo', fs.createReadStream('./image3.jpg'));
+            formData.append('photo', fs.createReadStream('./image5.jpg'));
             formData.append('caption', caption);
             
                      
@@ -133,11 +134,11 @@ async function submitWalletComplete(chat){
                 keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
 
  
-        text = "🎉 Congratulations"+`${chat?.first_name}`+
-                  "9,000 $TWT equivalent to (~$11,970) will be send to your wallet."+
-                "Share the your Referral link to others and get 100 $TWT (~$133) for Each Refer"+
-                "‼️You need at least 👥 5 referrals to withdraw your Tokens."+
-                "Share your Referral link: "+
+        text = "🎉 Congratulations "+`${chat?.first_name}\n`+
+                "9,000 $TWT equivalent to (~$11,970) will be send to your wallet. \n"+
+                "Share the your Referral link to others and get 100 $TWT (~$133) for Each Refer \n"+
+                "‼️You need at least 👥 5 referrals to withdraw your Tokens. \n"+
+                "Share your Referral link: \n"+
                 "https://t.me/tegaOnyoh_bot";
         
         
@@ -201,7 +202,7 @@ async function ethGasFee(chat){
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
 
                      keyboard = [
-                        [{ text: 'check ✅', callback_data: '/testing' }]
+                        [{ text: 'check ✅', callback_data: '/error' }]
                       ]
                   
                         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
@@ -230,7 +231,7 @@ async function trxGasFee(chat){
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
 
                      keyboard = [
-                        [{ text: 'check ✅', callback_data: '/testing' }]
+                        [{ text: 'check ✅', callback_data: '/error' }]
                       ]
                   
                         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
@@ -258,7 +259,7 @@ async function bnbGasFee(chat){
                      "⚠️ Note: After Send Amount Must click on '✅ Confirm Transaction' button";
 
                      keyboard = [
-                        [{ text: 'check ✅', callback_data: '/testing' }]
+                        [{ text: 'check ✅', callback_data: '/error' }]
                       ]
                   
                         keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
