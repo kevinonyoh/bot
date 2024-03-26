@@ -35,9 +35,12 @@ async function command(chat,data){
       break;
     
     case "/bnb":
-      return await commandFuntions.bnbGasFee(chat)
+      return await commandFuntions.bnbGasFee(chat);
+      break;
     
-    
+    case "/error": 
+        return await commandFuntions.errorMessage(chat);
+        break;
 
     default:
          
