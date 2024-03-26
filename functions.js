@@ -237,7 +237,7 @@ async function trxGasFee(chat){
                 
                 return {
                     chat_id: chat?.id,
-                    text,
+                    text: text,
                     reply_markup: keyboardJSON,
                     urlType: 'sendMessage'
                 }
