@@ -104,7 +104,6 @@ async function submitWallet(chat){
             "Add the text 'wallet' in other for our server to read your address";
 
             formData.append('chat_id', chat?.id);
-            formData.append('photo', fs.createReadStream('./image3.jpg'));
             formData.append('photo', fs.createReadStream('./image5.jpeg'));
             formData.append('caption', caption);
             
@@ -122,7 +121,7 @@ async function submitWallet(chat){
 async function submitWalletComplete(chat){
 
 
-                let text;
+                let caption;
                 let keyboard;
                 let keyboardJSON;
                 const formData = new FormData();
@@ -134,19 +133,22 @@ async function submitWalletComplete(chat){
                 keyboardJSON = JSON.stringify({ 'inline_keyboard': keyboard });
 
  
-        text = "🎉 Congratulations "+`${chat?.first_name}\n`+
+        caption = "🎉 Congratulations "+`${chat?.first_name}\n`+
                 "9,000 $TWT equivalent to (~$11,970) will be send to your wallet. \n"+
                 "Share the your Referral link to others and get 100 $TWT (~$133) for Each Refer \n"+
                 "‼️You need at least 👥 5 referrals to withdraw your Tokens. \n"+
                 "Share your Referral link: \n"+
                 "https://t.me/tegaOnyoh_bot";
         
-        
+       formData.append('chat_id', chat?.id);
+       formData.append('photo', fs.createReadStream('./image3.jpg'));  
+       formData.append('caption', caption);
+       formData.append('reply_markup', keyboardJSON);
+
+
                 return {
-                    chat_id: chat?.id,
-                    text,
-                    reply_markup: keyboardJSON,
-                    urlType: `sendMessage`
+                   formData,
+                    urlType: `sendPhoto`
                 }
 
 }
